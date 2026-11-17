@@ -1,93 +1,147 @@
-# Sistema Inteligente de Triagem e Priorização Automatizada de Atendimentos em Organizações Comunitárias
+# Sistema de Triagem e Priorização Automatizada de Demandas Comunitárias
 
-**Projeto de Extensão Universitária em Sistemas Inteligentes**  
-**Instituição:** UNINOVE — Centro Universitário Nove de Julho  
-**Curso:** Ciência da Computação / Sistemas de Informação  
-**Aluno:** Gabriel Neves Moura  
-**RA:** 2225102570  
-
----
-
-## 📌 Visão Geral do Projeto
-
-Este software implementa uma solução baseada em **Processamento de Linguagem Natural (PLN)** e **Machine Learning Supervisionado (Multinomial Naive Bayes + TF-IDF)** para automatizar a recepção, classificação temática e priorização por grau de urgência de solicitações de auxílio recebidas por ONGs e centros comunitários.
-
-### Categorias Suportadas (RN01 / RF03):
-- **Alimentação** (Cestas básicas, refeições emergenciais, leite infantil, etc.)
-- **Vestuário** (Agasalhos, roupas infantis, cobertores, calçados)
-- **Apoio Jurídico** (Medidas protetivas, regularização civil, orientações trabalhistas)
-- **Saúde/Orientação** (Medicamentos, apoio psicológico, fraldas geriátricas, primeiros socorros)
-
-### Níveis de Prioridade (RN02 / RF04):
-- 🔴 **Alta:** Risco iminente à vida, integridade física, desabastecimento severo imediato.
-- 🟡 **Média:** Necessidades substanciais com prazo de dias/semanas.
-- 🟢 **Baixa:** Dúvidas cadastrais, informações de oficinas, agendamentos rotineiros.
+Projeto de Extensão Universitária em Sistemas Inteligentes  
+Centro Universitário Nove de Julho (UNINOVE)  
+Curso: Bacharelado em Ciência da Computação / Sistemas de Informação  
+Autor: Gabriel Neves Moura (RA: 2225102570)  
 
 ---
 
-## 🏗️ Arquitetura e Tecnologias
+## 1. Descrição do Projeto
 
-- **Linguagem:** Python 3.10+
-- **Machine Learning & PLN:** `scikit-learn` (TF-IDF Vectorizer + MultinomialNB)
-- **Interface Web:** `Streamlit`
-- **Banco de Dados:** `SQLite` (persistência relacional local sem dependência de servidores)
-- **Engenharia de Dados:** `pandas`
-- **Conformidade LGPD:** Máscaras por expressões regulares para CPF, telefone e e-mail.
+Este software consiste em uma solução computacional desenvolvida para automatizar o processo de triagem, categorização temática e estratificação de prioridade de solicitações assistenciais recebidas por organizações da sociedade civil e instituições comunitárias.
+
+Em muitas entidades do terceiro setor, os pedidos de apoio chegam em formato de texto não estruturado (e-mails, formulários web e mensageria instantânea). A análise puramente manual dessas mensagens gera sobrecarga operacional e introduz o risco de solicitações emergenciais críticas ficarem represadas em filas de espera sem o devido destaque.
+
+Para mitigar esse gargalo, a aplicação emprega técnicas de Processamento de Linguagem Natural (PLN) e Aprendizado de Máquina Supervisionado (classificador Multinomial Naive Bayes combinado com vetorização estatística TF-IDF), permitindo a predição imediata da categoria da demanda e seu grau de criticidade, fornecendo suporte técnico à decisão dos gestores sociais.
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 2. Categorias e Níveis de Prioridade
 
-### 1. Criar e Ativar o Ambiente Virtual
+### 2.1 Categorias Temáticas
+* **Alimentação:** Solicitações de cestas básicas, alimentos não perecíveis, refeições e fórmulas infantis.
+* **Vestuário:** Demanda por agasalhos, cobertores, calçados e vestimentas de frio.
+* **Apoio Jurídico:** Orientações legais, medidas protetivas emergenciais, questões de guarda e regularização civil.
+* **Saúde/Orientação:** Encaminhamento médico, medicamentos de uso contínuo, fraldas geriátricas e apoio psicológico.
 
-```bash
-# No terminal (PowerShell / Prompt de Comando)
-cd "C:\Users\Gabriel Neves Moura\.gemini\antigravity\scratch\projeto-triagem-social"
+### 2.2 Estratificação de Prioridade
+* **Prioridade Alta:** Situações de desabastecimento severo de alimentos, risco à integridade física, urgências infantis ou vulnerabilidade extrema com necessidade de resposta imediata.
+* **Prioridade Média:** Necessidades materiais substanciais com prazo de atendimento estimado em dias.
+* **Prioridade Baixa:** Dúvidas cadastrais, pedidos de informação de oficinas, cursos comunitários e agendamentos rotineiros.
 
-python -m venv venv
-.\venv\Scripts\activate
+---
+
+## 3. Arquitetura e Tecnologias Utilizadas
+
+A solução foi desenvolvida adotando o paradigma de Programação Orientada a Objetos (POO), garantindo separação clara de responsabilidades entre as camadas de interface, inteligência artificial e persistência de dados.
+
+* **Linguagem Principal:** Python 3.10+
+* **Processamento de Linguagem Natural e ML:** `scikit-learn` (TfidfVectorizer com unigramas e bigramas; classificador MultinomialNB)
+* **Engenharia de Dados:** `pandas`
+* **Interface Web:** `streamlit` (interface com estética de prontuário e regulação clínica)
+* **Banco de Dados Relacional:** `SQLite` (persistência local embarcada sem necessidade de serviços externos)
+* **Testes Automatizados:** `unittest` / `pytest`
+* **Privacidade e LGPD:** Módulo de higienização com expressões regulares (`re`) para detecção e mascaramento de dados de identificação pessoal (CPFs, telefones e e-mails).
+
+---
+
+## 4. Estrutura do Repositório
+
+```text
+projeto-triagem-social/
+│
+├── data/
+│   └── dataset_sintetico.csv       # Base de treinamento com instâncias balanceadas em português
+│
+├── docs/
+│   └── documento_completo_uninove.html # Documentação técnica unificada e relatórios acadêmicos
+│
+├── src/
+│   ├── __init__.py
+│   ├── preprocessing.py            # Higienização de texto, remoção de stopwords e anonimização LGPD
+│   ├── models.py                   # Entidade de domínio Solicitacao (POO)
+│   ├── classifier.py               # Pipeline de treino, inferência e métricas estatísticas (TF-IDF + Naive Bayes)
+│   └── repository.py               # Camada de persistência relacional SQLite e exportação CSV/JSON
+│
+├── tests/
+│   ├── __init__.py
+│   └── test_triage.py              # Suíte de testes unitários, testes de integração e testes de sistema
+│
+├── .streamlit/
+│   └── config.toml                 # Configurações de tema de alto contraste da interface
+│
+├── app.py                          # Aplicação web interativa (Streamlit)
+├── requirements.txt                # Lista de bibliotecas e dependências do ambiente
+├── .gitignore                      # Regras de exclusão de artefatos temporários do versionamento
+└── README.md                       # Documentação técnica do projeto
 ```
 
-### 2. Instalar as Dependências
+---
 
-```bash
-pip install -r requirements.txt
-```
+## 5. Instruções de Instalação e Execução
 
-### 3. Rodar a Bateria de Testes Automatizados
+### 5.1 Pré-requisitos
+* Python 3.10 ou superior instalado no sistema operacional.
+* Gerenciador de pacotes `pip` atualizado.
+
+### 5.2 Passo a Passo
+
+1. **Clonar o repositório:**
+   ```bash
+   git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
+   cd SEU-REPOSITORIO
+   ```
+
+2. **Criar e ativar o ambiente virtual (recomendado):**
+   ```bash
+   # No Windows (PowerShell):
+   python -m venv venv
+   .\venv\Scripts\activate
+
+   # No Linux / macOS:
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Instalar as dependências:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Executar a aplicação web:**
+   ```bash
+   streamlit run app.py
+   ```
+   A interface será carregada automaticamente no navegador através do endereço `http://localhost:8501`.
+
+---
+
+## 6. Execução da Suíte de Testes Automatizados
+
+O projeto conta com testes unitários, testes de integração e testes de sistema para validar a conformidade dos requisitos funcionais e não-funcionais (tempo de inferência inferior a 2,0 segundos, imunidade a SQL injection e robustez contra entradas vazias).
+
+Para rodar todos os testes automatizados, execute no terminal:
 
 ```bash
 python -m unittest discover tests
 ```
 
-### 4. Iniciar a Aplicação Web Interativa
+---
 
-```bash
-streamlit run app.py
-```
+## 7. Segurança e Conformidade com a LGPD
 
-A aplicação abrirá automaticamente no seu navegador no endereço `http://localhost:8501`.
+O software incorpora salvaguardas alinhadas à Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018):
+* **Minimização:** Coleta apenas dados estritamente necessários para o atendimento assistencial (nome, telefone e relato da necessidade).
+* **Anonimização em Tempo de Execução:** O pipeline de pré-processamento substitui automaticamente dados sensíveis identificáveis por marcadores anônimos antes de submeter o texto à análise de inteligência artificial.
+* **Operação Local:** Os dados são mantidos exclusivamente em banco de dados local (`triage.db`), sem transmissão de dados para servidores externos ou nuvens de terceiros.
+* **Defesa contra Injeção de Código:** Consultas parametrizadas (*Prepared Statements*) são empregadas em todas as rotinas de banco de dados, neutralizando riscos de SQL Injection.
 
 ---
 
-## 🧪 Estrutura de Arquivos
+## 8. Autor e Identificação Acadêmica
 
-```
-projeto-triagem-social/
-│
-├── data/
-│   └── dataset_sintetico.csv       # Base sintética balanceada de mensagens comunitárias
-│
-├── src/
-│   ├── preprocessing.py            # Pré-processamento, Stopwords e Anonimização LGPD
-│   ├── models.py                   # Entidade Solicitacao (POO)
-│   ├── classifier.py               # Pipeline TF-IDF + Multinomial Naive Bayes
-│   └── repository.py               # Persistência SQLite e exportações CSV/JSON
-│
-├── tests/
-│   └── test_triage.py              # Suíte de testes unitários, integração e desempenho
-│
-├── app.py                          # Interface Web completa em Streamlit
-├── requirements.txt                # Dependências do projeto
-└── README.md                       # Documentação técnica do sistema
-```
+* **Desenvolvedor:** Gabriel Neves Moura
+* **Registro Acadêmico (RA):** 2225102570
+* **Instituição:** Centro Universitário Nove de Julho (UNINOVE)
+* **Disciplina:** Projeto de Extensão em Sistemas Inteligentes
