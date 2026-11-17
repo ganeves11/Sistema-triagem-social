@@ -5,7 +5,7 @@
 Projeto de Extensão Universitária em Sistemas Inteligentes  
 Centro Universitário Nove de Julho (UNINOVE)  
 Curso: Bacharelado em Ciência da Computação / Sistemas de Informação  
-Autor: Gabriel Neves Moura (RA: 2225102570)  
+Autor: Gabriel Neves Moura  
 
 ---
 
@@ -141,9 +141,9 @@ O software incorpora salvaguardas alinhadas à Lei Geral de Proteção de Dados 
 
 ---
 
-## 8. Autor e Identificação Acadêmica
+## 8. Autor e Identificação
 
 * **Desenvolvedor:** Gabriel Neves Moura ([@ganeves11](https://github.com/ganeves11))
-* **Registro Acadêmico (RA):** 2225102570
 * **Instituição:** Centro Universitário Nove de Julho (UNINOVE)
+* **Curso:** Bacharelado em Ciência da Computação / Sistemas de Informação
 * **Disciplina:** Projeto de Extensão em Sistemas Inteligentes
