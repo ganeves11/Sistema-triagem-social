@@ -1,4 +1,6 @@
-# Sistema de Triagem e Priorização Automatizada de Demandas Comunitárias
+# Sistema - Triagem - Social
+
+### Plataforma de Triagem e Priorização Automatizada de Demandas Comunitárias com Inteligência Artificial
 
 Projeto de Extensão Universitária em Sistemas Inteligentes  
 Centro Universitário Nove de Julho (UNINOVE)  
