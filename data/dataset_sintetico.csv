@@ -1,0 +1,74 @@
+texto,categoria,urgencia
+"Preciso com muita urgência de comida para meus três filhos pequenos, não temos nada para almoçar hoje e estamos passando fome.",Alimentação,Alta
+"Estamos sem comida nenhuma na despensa desde ontem, bebê sem leite e chorando desesperado.",Alimentação,Alta
+"Situação desesperadora, mãe solo desempregada sem ter o que dar para 4 crianças comerem hoje.",Alimentação,Alta
+"Não comemos nada há quase dois dias, socorro por favor mandem uma cesta básica com urgência.",Alimentação,Alta
+"Minha família está passando necessidade grave de alimentos básicos, arroz e feijão acabaram totalmente.",Alimentação,Alta
+"Crianças desnutridas e sem nenhuma alimentação em casa, precisamos de socorro alimentar imediato.",Alimentação,Alta
+"Gostaria de saber se a ONG distribui cesta básica mensalmente e como funciona o cadastro da família.",Alimentação,Baixa
+"Queria me informar sobre dias e horários da distribuição do sopão solidário no centro comunitário.",Alimentação,Baixa
+"Como faço para cadastrar minha avó no programa de suplementação alimentar para idosos?",Alimentação,Baixa
+"Gostaria de informações sobre oficinas de aproveitamento integral de alimentos e horta comunitária.",Alimentação,Baixa
+"Existe algum curso de panificação comunitária com vagas abertas na instituição?",Alimentação,Baixa
+"Nossa cesta básica do mês está quase acabando e precisaremos de reforço para as próximas semanas.",Alimentação,Média
+"Gostaria de solicitar uma cesta básica pois meu marido perdeu o bico e o alimento vai acabar em poucos dias.",Alimentação,Média
+"Preciso de apoio com leite em pó e fraldas para meu filho neste mês pois o orçamento apertou.",Alimentação,Média
+"Estamos com pouca comida para a semana que vem, se puderem ajudar com alguns mantimentos agradecemos.",Alimentação,Média
+"Moramos na rua debaixo da ponte e as crianças estão tremendo de frio sob chuva forte sem agasalho nenhum.",Vestuário,Alta
+"Minha casa pegou fogo ontem e perdemos absolutamente todas as roupas, cobertores e calçados da família.",Vestuário,Alta
+"Bebê recém-nascido em casa sem roupa de frio nem cobertor no meio dessa frente fria intensa, socorro.",Vestuário,Alta
+"Enchente levou tudo na nossa casa ontem à noite, estamos só com a roupa do corpo molhada e sem agasalhos.",Vestuário,Alta
+"Senhora idosa em extrema vulnerabilidade passando frio sem colchão nem cobertor em barraco úmido.",Vestuário,Alta
+"Gostaria de saber se o bazar solidário de roupas funciona aos sábados para doações e compras.",Vestuário,Baixa
+"Queria doar umas roupas usadas em bom estado para a comunidade, qual o horário de recebimento?",Vestuário,Baixa
+"Vocês aceitam doação de calçados infantis e brinquedos para as famílias cadastradas?",Vestuário,Baixa
+"Gostaria de saber se haverá campanha do agasalho no próximo inverno.",Vestuário,Baixa
+"Gostaria de verificar se tem roupas sociais para entrevista de emprego na próxima semana.",Vestuário,Baixa
+"Preciso de agasalhos e tênis para meus filhos irem para a escola na próxima semana pois esfriou bastante.",Vestuário,Média
+"Solicito doação de roupas infantis para menino de 5 anos e menina de 8 anos para repor o guarda-roupa.",Vestuário,Média
+"Estamos precisando de cobertores para a família antes que o inverno comece com força.",Vestuário,Média
+"Preciso de um par de botas de segurança tamanho 41 para poder trabalhar na obra na segunda-feira.",Vestuário,Média
+"Minha filha está precisando de roupas para a escola pois as antigas não cabem mais.",Vestuário,Média
+"Estou sendo ameaçada de morte pelo meu ex-marido agora mesmo e preciso de medida protetiva urgente com abrigo.",Apoio Jurídico,Alta
+"Ameaça de reintegração de posse violenta hoje no nosso conjunto habitacional, moradores precisam de liminar imediata.",Apoio Jurídico,Alta
+"Pai está retendo os documentos e agredindo os filhos em casa, precisamos de socorro judicial imediato.",Apoio Jurídico,Alta
+"Mãe sendo coagida e expulsa de casa pelo cônjuge agressor, necessita de acolhimento e auxílio jurídico urgente.",Apoio Jurídico,Alta
+"Idoso sofrendo violência patrimonial e cárcere privado por parentes, risco iminente à integridade física.",Apoio Jurídico,Alta
+"Gostaria de orientações sobre como dar entrada no divórcio consensual no cartório comunitário.",Apoio Jurídico,Baixa
+"Preciso de informações sobre como tirar a segunda via da certidão de nascimento do meu filho.",Apoio Jurídico,Baixa
+"Vocês oferecem consultoria jurídica gratuita para dúvidas sobre aposentadoria por idade do INSS?",Apoio Jurídico,Baixa
+"Gostaria de saber os documentos necessários para regularizar a guarda compartilhada de comum acordo.",Apoio Jurídico,Baixa
+"Como faço para agendar atendimento com o advogado voluntário sobre partilha amigável de bens?",Apoio Jurídico,Baixa
+"Recebi uma intimação judicial para desocupar o imóvel em 15 dias e não tenho como pagar advogado particular.",Apoio Jurídico,Média
+"Pai dos meus filhos não paga a pensão alimentícia há quatro meses e preciso de orientação para cobrar.",Apoio Jurídico,Média
+"Fui demitido sem justa causa da empresa e não recebi rescisão nem FGTS, preciso de assessoria trabalhista.",Apoio Jurídico,Média
+"Tive meu benefício do BPC cortado indevidamente pelo INSS e preciso recorrer do cancelamento.",Apoio Jurídico,Média
+"Estou com cobranças indevidas de banco que bloquearam minha conta salário e preciso de ajuda legal.",Apoio Jurídico,Média
+"Idoso acamado tendo convulsões repetidas e sem oxigênio em casa, necessita de ambulância e atendimento imediato.",Saúde/Orientação,Alta
+"Criança com febre de 40 graus com falta de ar grave e sem transporte para o pronto socorro municipal.",Saúde/Orientação,Alta
+"Pessoa com crise psiquiátrica severa com ideação suicida iminente na comunidade, socorro urgente.",Saúde/Orientação,Alta
+"Grave ferimento na perna infeccionado com sangramento em morador idoso que não consegue andar até o posto.",Saúde/Orientação,Alta
+"Bebê engasgado e com lábios roxos, mãe em desespero solicitando atendimento de emergência.",Saúde/Orientação,Alta
+"Gostaria de saber o calendário de vacinação contra a gripe e dengue no posto móvel do bairro.",Saúde/Orientação,Baixa
+"Como faço para agendar consulta odontológica preventiva pelo programa de saúde da comunidade?",Saúde/Orientação,Baixa
+"Vocês têm grupo de caminhada para terceira idade e ginástica laboral comunitária?",Saúde/Orientação,Baixa
+"Gostaria de informações sobre palestras de nutrição e combate ao tabagismo na associação.",Saúde/Orientação,Baixa
+"Queria saber os dias de atendimento da fonoaudióloga voluntária para crianças com dificuldade de fala.",Saúde/Orientação,Baixa
+"Preciso de remédio contínuo para hipertensão e diabetes que está em falta na UBS há dias.",Saúde/Orientação,Média
+"Gostaria de agendamento de psicólogo comunitário para jovem com quadro moderado de ansiedade e depressão.",Saúde/Orientação,Média
+"Solicito empréstimo de cadeira de rodas ou muletas para paciente em recuperação pós-cirúrgica no bairro.",Saúde/Orientação,Média
+"Preciso de orientação sobre como conseguir fraldas geriátricas para idoso acamado pelo SUS.",Saúde/Orientação,Média
+"Necessito de auxílio para marcar exame de ultrassom que está demorando muito na rede pública.",Saúde/Orientação,Média
+"Não temos nem pão nem leite para as crianças acordarem amanhã, estamos desamparados.",Alimentação,Alta
+"Por favor nos ajude, família sem renda nenhuma e dispensa vazia sem mantimentos.",Alimentação,Alta
+"Tem como conseguir leite especial para bebê com intolerância alimentar grave?",Alimentação,Média
+"Quais os dias em que a ONG entrega legumes e verduras orgânicas para a comunidade?",Alimentação,Baixa
+"Morador de rua descalço em noite de geada com hipotermia pedindo coberta.",Vestuário,Alta
+"Mãe precisa de enxoval simples para bebê que vai nascer no fim do mês que vem.",Vestuário,Média
+"Como funciona o projeto de customização de roupas e costura criativa da entidade?",Vestuário,Baixa
+"Ameaça física grave de vizinho violento portando faca contra família vulnerável.",Apoio Jurídico,Alta
+"Preciso recorrer da negativa de remédio de alto custo que o estado se recusa a fornecer.",Apoio Jurídico,Média
+"Gostaria de saber quando terá o mutirão de emissão de título de eleitor e RG comunitário.",Apoio Jurídico,Baixa
+"Criança desidratada vomitando sem parar há dois dias sem conseguir ingerir soro nem água.",Saúde/Orientação,Alta
+"Preciso de curativos especiais para ferida de úlcera em paciente diabético.",Saúde/Orientação,Média
+"Onde consigo pegar preservative e fazer teste rápido de hepatite no centro social?",Saúde/Orientação,Baixa

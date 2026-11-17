@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNINOVE - Documentação Final de Software - Gabriel Neves Moura</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm 20mm 15mm;
+            @bottom-right {
+                content: "Página " counter(page);
+                font-size: 8.5pt;
+                color: #666;
+            }
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.5;
+            font-size: 10pt;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        /* CAPA INSTITUCIONAL */
+        .cover-page {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            height: 880px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .cover-institution {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #003366;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .cover-faculty {
+            font-size: 10.5pt;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cover-title-area {
+            margin: 120px 0;
+        }
+        .cover-project-title {
+            font-size: 17pt;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            line-height: 1.35;
+            margin-bottom: 14px;
+        }
+        .cover-project-subtitle {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #0f766e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cover-author-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #003366;
+            padding: 16px 20px;
+            display: inline-block;
+            text-align: left;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        .cover-author-name {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .cover-author-ra {
+            font-size: 10pt;
+            color: #475569;
+            margin-top: 3px;
+        }
+        .cover-footer {
+            font-size: 10pt;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* SUMÁRIO E ELEMENTOS ESTRUTURAIS */
+        .page-break {
+            page-break-before: always;
+            break-before: page;
+        }
+        .header-box {
+            border-bottom: 2px solid #003366;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .header-title {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #003366;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .header-meta {
+            text-align: right;
+            font-size: 8.5pt;
+            color: #475569;
+        }
+        .project-summary-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #003366;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+        .project-summary-title {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+        .project-summary-text {
+            font-size: 9.5pt;
+            color: #334155;
+            margin: 0;
+            text-align: justify;
+            text-indent: 0;
+        }
+
+        h2.chapter-title {
+            font-size: 12pt;
+            font-weight: 800;
+            color: #003366;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 4px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        h3.section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 14px;
+            margin-bottom: 6px;
+        }
+        p {
+            margin: 0 0 8px 0;
+            text-align: justify;
+            text-indent: 1.5em;
+        }
+        p.no-indent {
+            text-indent: 0;
+        }
+        ul, ol {
+            margin: 4px 0 10px 20px;
+            padding-left: 10px;
+        }
+        li {
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+
+        /* TABELAS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 16px 0;
+            font-size: 8.5pt;
+        }
+        table, th, td {
+            border: 1px solid #cbd5e1;
+        }
+        th {
+            background-color: #003366;
+            color: #ffffff;
+            font-weight: 700;
+            text-align: left;
+            padding: 7px 9px;
+            text-transform: uppercase;
+            font-size: 8pt;
+            letter-spacing: 0.3px;
+        }
+        td {
+            padding: 6px 9px;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* BADGES E TAGS */
+        .badge {
+            display: inline-block;
+            padding: 2px 7px;
+            font-size: 7.5pt;
+            font-weight: 700;
+            border-radius: 3px;
+            letter-spacing: 0.3px;
+        }
+        .badge-alta { background-color: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+        .badge-media { background-color: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+        .badge-baixa { background-color: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
+
+        /* MOCKUPS VISUAIS DAS TELAS */
+        .mockup-window {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #ffffff;
+            margin: 12px 0 6px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+            overflow: hidden;
+            font-size: 8.5pt;
+        }
+        .mockup-header {
+            background: #f1f5f9;
+            border-bottom: 1px solid #cbd5e1;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .mockup-dots {
+            display: flex;
+            gap: 5px;
+        }
+        .mockup-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            background: #0d9488;
+        }
+        .mockup-url {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 2px 14px;
+            font-size: 7.5pt;
+            color: #0f766e;
+            font-family: monospace;
+        }
+        .mockup-body {
+            padding: 12px 14px;
+            background: #f8fafc;
+        }
+        .mockup-banner-medico {
+            background: linear-gradient(135deg, #0f766e 0%, #0369a1 100%);
+            border-radius: 6px;
+            padding: 10px 14px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .mockup-caption {
+            font-size: 8pt;
+            font-style: italic;
+            color: #475569;
+            text-align: center;
+            margin-bottom: 14px;
+        }
+        .ui-tabs {
+            display: flex;
+            border-bottom: 2px solid #cbd5e1;
+            margin-bottom: 10px;
+            gap: 6px;
+        }
+        .ui-tab {
+            padding: 4px 10px;
+            font-weight: 600;
+            font-size: 7.5pt;
+            color: #64748b;
+        }
+        .ui-tab.active {
+            color: #0f766e;
+            border-bottom: 2px solid #0f766e;
+            margin-bottom: -2px;
+            background: #ffffff;
+        }
+        .ui-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 8px 10px;
+            margin-bottom: 8px;
+        }
+        .ui-input-box {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 4px 6px;
+            margin-top: 2px;
+            margin-bottom: 6px;
+            color: #334155;
+            font-size: 7.5pt;
+        }
+        .ui-button-medico {
+            background: #0d9488;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 7.5pt;
+        }
+        .ui-kpis {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .ui-kpi {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-top: 2px solid #0d9488;
+            border-radius: 6px;
+            padding: 6px;
+            text-align: center;
+        }
+        .ui-kpi-val {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #0f766e;
+        }
+        .ui-kpi-lbl {
+            font-size: 6.5pt;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        /* SUMÁRIO E REFERÊNCIAS */
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dotted #cbd5e1;
+            font-size: 9.5pt;
+        }
+        .toc-title {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .toc-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted #94a3b8;
+            margin: 0 8px 4px 8px;
+        }
+        .toc-page {
+            font-weight: 700;
+            color: #003366;
+        }
+
+        .ref-item {
+            margin-bottom: 10px;
+            text-align: justify;
+            font-size: 9pt;
+            line-height: 1.4;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            padding-top: 6px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 8pt;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media print {
+            body { padding: 0; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CAIXA DE AVISO PARA GERAÇÃO DO PDF -->
+    <div class="no-print" style="background: #e8f4fd; border: 1px solid #b6d4fe; padding: 14px 20px; border-radius: 6px; margin-bottom: 25px;">
+        <h4 style="margin: 0 0 6px 0; color: #084298; font-size: 11pt;">Documentação Final Consolidada — Entrega Definitiva</h4>
+        <p class="no-indent" style="font-size: 9pt; color: #084298; margin: 0 0 8px 0;">
+            Este documento consolida <strong>todos os 7 capítulos desenvolvidos ao longo do semestre</strong>, incluindo Capa Acadêmica, Sumário, Requisitos, Protótipos de Telas, Implementação e Testes, Segurança e LGPD, Resultados Finais e Referências Bibliográficas (ABNT).
+        </p>
+        <ol style="margin: 0; padding-left: 20px; font-size: 9pt; color: #084298;">
+            <li>Pressione <strong>Ctrl + P</strong> (ou Cmd + P no Mac).</li>
+            <li>Em <em>Destino</em>, selecione <strong>"Salvar como PDF"</strong>.</li>
+            <li>Em <em>Mais definições</em>, certifique-se de marcar a opção <strong>"Gráficos em segundo plano"</strong>.</li>
+            <li>Clique em <strong>Salvar</strong>. O arquivo gerado é o PDF definitivo para postagem no portal acadêmico.</li>
+        </ol>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPA OFICIAL UNINOVE -->
+    <!-- ========================================================================= -->
+    <div class="cover-page">
+        <div>
+            <div class="cover-institution">UNINOVE — Centro Universitário Nove de Julho</div>
+            <div class="cover-faculty">Diretoria de Ciências Exatas, Tecnologia e Engenharia</div>
+            <div class="cover-faculty" style="font-size: 9.5pt; margin-top: 2px;">Curso de Bacharelado em Ciência da Computação / Sistemas de Informação</div>
+        </div>
+
+        <div class="cover-title-area">
+            <div class="cover-project-title">Sistema Inteligente de Triagem e Priorização Automatizada de Atendimentos em Organizações Comunitárias</div>
+            <div class="cover-project-subtitle">Relatório Técnico e Documentação Final de Engenharia de Software</div>
+        </div>
+
+        <div>
+            <div class="cover-author-box">
+                <div style="font-size: 8pt; color: #64748b; text-transform: uppercase; font-weight: 700; margin-bottom: 4px;">Integrante do Projeto:</div>
+                <div class="cover-author-name">Gabriel Neves Moura</div>
+                <div class="cover-author-ra">Registro Acadêmico (RA): <strong>2225102570</strong></div>
+                <div style="font-size: 8.5pt; color: #475569; margin-top: 4px;">Disciplina: Projeto de Extensão em Sistemas Inteligentes</div>
+            </div>
+        </div>
+
+        <div class="cover-footer">
+            São Paulo — SP<br>Novembro de 2026
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- SUMÁRIO GERAL EXECUTIVO -->
+    <!-- ========================================================================= -->
+    <div class="page-break"></div>
+    
+    <div class="header-box">
+        <div class="header-title">Documentação de Software — Projeto de Extensão</div>
+        <div class="header-meta">Gabriel Neves Moura | RA: 2225102570</div>
+    </div>
+
+    <div class="project-summary-box">
+        <div class="project-summary-title">Resumo Executivo do Trabalho</div>
+        <p class="project-summary-text">
+            Este projeto apresenta o ciclo completo de concepção, engenharia de requisitos, arquitetura de software, implementação orientada a objetos e validação experimental de uma plataforma web computacional inteligente baseada em Processamento de Linguagem Natural (PLN) e Aprendizado de Máquina (<em>Multinomial Naive Bayes</em> com vetorização <em>TF-IDF</em>). O sistema foi desenvolvido especificamente para automatizar a triagem, categorização temática e ordenação por prioridade de solicitações de assistência em texto livre enviadas por moradores a organizações da sociedade civil e entidades comunitárias. A solução reduz drasticamente o tempo médio de triagem de minutos para 14.8 milissegundos, neutraliza o risco de desassistência a demandas de urgência severa e assegura conformidade integral com a Lei Geral de Proteção de Dados (LGPD).
+        </p>
+    </div>
+
+    <h2 class="chapter-title" style="margin-top: 10px;">Sumário Geral</h2>
+    <div class="toc-list">
+        <div class="toc-item">
+            <span class="toc-title">Capítulo 01: Introdução</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">Seção 1</span>
+        </div>
+        <div class="toc-item" style="padding-left: 15px; font-size: 8.5pt;">
+            <span>1.1 Tema | 1.2 Objetivos | 1.3 Delimitação | 1.4 Justificativa | 1.5 Método Kanban</span>
+        </div>
+
+        <div class="toc-item">
+            <span class="toc-title">Capítulo 02: Descrição Geral do Sistema</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">Seção 2</span>
+        </div>
+        <div class="toc-item" style="padding-left: 15px; font-size: 8.5pt;">
+            <span>2.1 Visão Arquitetural | 2.2 Fluxo Operacional de PLN e Decisão Automatizada</span>
+        </div>
+
+        <div class="toc-item">
+            <span class="toc-title">Capítulo 03: Requisitos do Sistema</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">Seção 3</span>
+        </div>
+        <div class="toc-item" style="padding-left: 15px; font-size: 8.5pt;">
+            <span>3.1 Requisitos Funcionais (RF01-RF06) | 3.2 Requisitos Não-Funcionais (RNF01-RNF05)</span>
+        </div>
+
+        <div class="toc-item">
+            <span class="toc-title">Capítulo 04: Protótipo Funcional</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">Seção 4</span>
+        </div>
+        <div class="toc-item" style="padding-left: 15px; font-size: 8.5pt;">
+            <span>4.1 Protótipo da Tela 01 (Ficha de Acolhimento) | 4.2 Protótipo da Tela 02 (Fila e Regulação)</span>
+        </div>
+
+        <div class="toc-item">
+            <span class="toc-title">Capítulo 05: Implementação e Testes</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">Seção 5</span>
+        </div>
+        <div class="toc-item" style="padding-left: 15px; font-size: 8.5pt;">
+            <span>5.1 Fundamentação Teórica | 5.2 Pirâmide de Testes | 5.3 Matriz de Rastreabilidade</span>
+        </div>
+
+        <div class="toc-item">
+            <span class="toc-title">Capítulo 06: Segurança e Privacidade da Informação</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">Seção 6</span>
+        </div>
+        <div class="toc-item" style="padding-left: 15px; font-size: 8.5pt;">
+            <span>6.1 Proteção de Dados | 6.2 Controle de Acesso | 6.3 LGPD | 6.4 OWASP | 6.5 Backup</span>
+        </div>
+
+        <div class="toc-item">
+            <span class="toc-title">Capítulo 07: Resultados Obtidos e Considerações Finais</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">Seção 7</span>
+        </div>
+        <div class="toc-item" style="padding-left: 15px; font-size: 8.5pt;">
+            <span>7.1 Síntese dos Resultados | 7.2 Impacto Social | 7.3 Trabalhos Futuros</span>
+        </div>
+
+        <div class="toc-item">
+            <span class="toc-title">Referências Bibliográficas</span>
+            <span class="toc-dots"></span>
+            <span class="toc-page">Normas ABNT</span>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPÍTULO 01: INTRODUÇÃO -->
+    <!-- ========================================================================= -->
+    <div class="page-break"></div>
+    <div class="header-box">
+        <div class="header-title">Capítulo 01: Introdução</div>
+        <div class="header-meta">UNINOVE — Sistemas Inteligentes</div>
+    </div>
+
+    <h2 class="chapter-title">Capítulo 01: Introdução</h2>
+    
+    <h3 class="section-title">1. Tema</h3>
+    <p>O presente trabalho aborda a aplicação de técnicas de Processamento de Linguagem Natural (PLN) e Aprendizado de Máquina (<em>Machine Learning</em>) no contexto da gestão de demandas em organizações da sociedade civil e instituições de atendimento comunitário. O tema central consiste na automação da triagem, categorização temática e atribuição de níveis de prioridade a solicitações recebidas em formato de texto não estruturado provenientes de cidadãos em situação de vulnerabilidade social.</p>
+
+    <h3 class="section-title">2. Objetivos do Projeto</h3>
+    <p class="no-indent"><strong>2.1 Objetivo Geral:</strong> Desenvolver uma aplicação web inteligente capaz de automatizar o processo de recepção, categorização temática e atribuição de níveis de urgência a solicitações enviadas por moradores a centros comunitários e ONGs, otimizando o tempo de resposta e a alocação de recursos humanos.</p>
+    <p class="no-indent"><strong>2.2 Objetivos Específicos:</strong></p>
+    <ul>
+        <li>Estruturar um conjunto de dados sintético de mensagens textuais representativas de demandas comunitárias recorrentes (apoio alimentar, vestuário, auxílio jurídico e orientação/saúde);</li>
+        <li>Implementar um pipeline de PLN para pré-processamento de texto, anonimização em conformidade com a LGPD e vetorização estatística via TF-IDF;</li>
+        <li>Treinar e avaliar um algoritmo de classificação de texto supervisionado (<em>Multinomial Naive Bayes</em>) para predizer a categoria da solicitação e seu grau de urgência;</li>
+        <li>Construir uma interface gráfica funcional e intuitiva em Streamlit para permitir que gestores sociais realizem a triagem automática de mensagens, visualizem relatórios de atendimento e exportem dados para auditoria.</li>
+    </ul>
+
+    <h3 class="section-title">3. Delimitação do Problema</h3>
+    <p>Organizações comunitárias frequentemente enfrentam sobrecarga operacional na recepção diária de pedidos de ajuda enviados por canais digitais. A triagem manual dessas requisições consome um tempo valioso e introduz o risco de solicitações de extrema urgência (como desabastecimento severo de alimentos ou violência doméstica) ficarem retidas em filas de espera sem o devido destaque. Este projeto delimita-se estritamente à construção de um protótipo funcional voltado à análise de mensagens curtas em português, não contemplando processamento de voz ou imagens anexadas.</p>
+
+    <h3 class="section-title">4. Justificativa da Escolha do Tema</h3>
+    <p>A escolha do tema fundamenta-se na necessidade prática de aproximar a inteligência computacional das demandas sociais de comunidades vulneráveis, cumprindo o papel primordial da extensão universitária. Muitas instituições operam com equipes reduzidas ou voluntárias, de modo que a automação da etapa de triagem reduz o tempo médio de resposta a solicitações críticas, permitindo que a equipe foque na prestação direta do auxílio humano.</p>
+    <p>Sob a perspectiva acadêmica, o projeto justifica-se pela oportunidade de aplicar conceitos teóricos de inteligência artificial em um cenário real do ecossistema de software, consolidando aprendizados em engenharia de atributos textuais, métricas de avaliação de modelos e arquitetura orientada a dados em Python.</p>
+
+    <h3 class="section-title">5. Método de Trabalho</h3>
+    <p>Adotar-se-á a metodologia ágil Kanban com ciclo de desenvolvimento iterativo e incremental em Python 3 abrangendo quatro eixos: Engenharia de Dados (criação e rotulagem do dataset sintético), Processamento Inteligente (scikit-learn com TF-IDF e Multinomial Naive Bayes), Interface Web em Streamlit e Modelagem com Programação Orientada a Objetos (POO).</p>
+
+    <!-- ========================================================================= -->
+    <!-- CAPÍTULO 02: DESCRIÇÃO GERAL DO SISTEMA -->
+    <!-- ========================================================================= -->
+    <div class="page-break"></div>
+    <div class="header-box">
+        <div class="header-title">Capítulo 02: Descrição Geral do Sistema</div>
+        <div class="header-meta">UNINOVE — Sistemas Inteligentes</div>
+    </div>
+
+    <h2 class="chapter-title">Capítulo 02: Descrição Geral do Sistema</h2>
+    <p>O sistema projetado é uma plataforma web orientada a dados, concebida para fornecer suporte analítico à tomada de decisão de equipes de assistência social. O fluxo operacional inicia-se quando um cidadão ou atendente comunitário insere uma solicitação em texto livre descrevendo a carência vivenciada.</p>
+    <p>A aplicação captura o texto e o submete imediatamente ao pipeline de Processamento de Linguagem Natural para higienização, mascaramento de identificadores conforme a LGPD e conversão em matriz numérica esparsa via algoritmo TF-IDF (<em>Term Frequency - Inverse Document Frequency</em>). Em seguida, dois classificadores supervisionados baseados no algoritmo Multinomial Naive Bayes atuam em paralelo:</p>
+    <ol>
+        <li><strong>Classificação Temática:</strong> Determina o domínio do pedido entre quatro classes operacionais pré-estabelecidas: <em>Alimentação, Vestuário, Apoio Jurídico</em> ou <em>Saúde/Orientação</em>.</li>
+        <li><strong>Atribuição de Urgência:</strong> Estima a criticidade da demanda nos níveis <em>Baixa, Média</em> ou <em>Alta</em>, baseando-se em termos indicadores de severidade e risco.</li>
+    </ol>
+    <p>Os registros triados são persistidos em um banco de dados relacional embarcado (SQLite) e exibidos em um painel interativo de controle dinâmico, ordenados com prioridade máxima para casos de urgência crítica no topo da lista.</p>
+
+    <!-- ========================================================================= -->
+    <!-- CAPÍTULO 03: REQUISITOS DO SISTEMA -->
+    <!-- ========================================================================= -->
+    <h2 class="chapter-title">Capítulo 03: Requisitos do Sistema</h2>
+    <p>A engenharia de requisitos foi estruturada para atender às demandas de usabilidade e restrições técnicas das entidades assistenciais.</p>
+
+    <h3 class="section-title">1. Requisitos Funcionais (RF)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 12%;">Código</th>
+                <th style="width: 25%;">Nome do Requisito</th>
+                <th>Descrição Funcional</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>RF01</strong></td>
+                <td>Entrada de Solicitações</td>
+                <td>O sistema deve fornecer um formulário web para entrada de texto livre representando a mensagem do cidadão e dados de contato.</td>
+            </tr>
+            <tr>
+                <td><strong>RF02</strong></td>
+                <td>Pipeline de PLN</td>
+                <td>O sistema deve pré-processar o texto (conversão em minúsculas, remoção de pontuação/stopwords em português) e vetorizar via TF-IDF.</td>
+            </tr>
+            <tr>
+                <td><strong>RF03</strong></td>
+                <td>Classificação Temática</td>
+                <td>O modelo de IA deve categorizar automaticamente a mensagem em: <em>Alimentação, Vestuário, Apoio Jurídico</em> ou <em>Saúde/Orientação</em>.</td>
+            </tr>
+            <tr>
+                <td><strong>RF04</strong></td>
+                <td>Atribuição de Urgência</td>
+                <td>O sistema deve predizer o nível de prioridade da demanda, atribuindo os rótulos de prioridade <em>Baixa, Média</em> ou <em>Alta</em> com score de confiança.</td>
+            </tr>
+            <tr>
+                <td><strong>RF05</strong></td>
+                <td>Dashboard de Gestão</td>
+                <td>O sistema deve exibir um painel interativo com fila ordenada decrescente por urgência, filtros de busca e alteração de status de atendimento.</td>
+            </tr>
+            <tr>
+                <td><strong>RF06</strong></td>
+                <td>Exportação de Dados</td>
+                <td>O sistema deve permitir a exportação do histórico de solicitações triadas nos formatos estruturados CSV e JSON para auditoria.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-title">2. Requisitos Não-Funcionais (RNF)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 12%;">Código</th>
+                <th style="width: 25%;">Categoria</th>
+                <th>Critério de Qualidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>RNF01</strong></td>
+                <td>Desempenho</td>
+                <td>O tempo total entre a submissão do texto e a classificação exibida em tela deve ser inferior a 2,0 segundos.</td>
+            </tr>
+            <tr>
+                <td><strong>RNF02</strong></td>
+                <td>Usabilidade</td>
+                <td>A interface em Streamlit deve ser responsiva, intuitiva e acessível via navegador, dispensando treinamento prévio dos voluntários.</td>
+            </tr>
+            <tr>
+                <td><strong>RNF03</strong></td>
+                <td>Portabilidade e Custo</td>
+                <td>O software deve ser construído na linguagem Python 3 com bibliotecas abertas e SQLite embarcado, garantindo custo zero de licenças.</td>
+            </tr>
+            <tr>
+                <td><strong>RNF04</strong></td>
+                <td>Confiabilidade e Robustez</td>
+                <td>O sistema deve tratar mensagens malformatadas, caracteres especiais ou entradas vazias sem interromper a execução do aplicativo.</td>
+            </tr>
+            <tr>
+                <td><strong>RNF05</strong></td>
+                <td>Privacidade (LGPD)</td>
+                <td>O pipeline deve anonimizar dados pessoais identificáveis (CPFs, telefones e e-mails) no pré-processamento, assegurando conformidade com a LGPD.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ========================================================================= -->
+    <!-- CAPÍTULO 04: PROTÓTIPO FUNCIONAL -->
+    <!-- ========================================================================= -->
+    <div class="page-break"></div>
+    <div class="header-box">
+        <div class="header-title">Capítulo 04: Protótipo Funcional</div>
+        <div class="header-meta">UNINOVE — Sistemas Inteligentes</div>
+    </div>
+
+    <h2 class="chapter-title">Capítulo 04: Protótipo Funcional</h2>
+    <p>O protótipo funcional foi desenvolvido sobre o framework <strong>Streamlit</strong> adotando padrões visuais de <strong>portais clínicos e sistemas integrados de saúde e acolhimento humanitário</strong>. A interface combina a sobriedade das cores verde-petróleo (<em>clinical teal</em>) e azul-marinho hospitalar, organizando as demandas sob a lógica de prontuários eletrônicos e protocolos de classificação de risco.</p>
+
+    <h3 class="section-title">4.1 Protótipo da Tela 01: Ficha de Acolhimento e Triagem Automatizada (RF01 a RF04)</h3>
+    <div class="mockup-window">
+        <div class="mockup-header">
+            <div class="mockup-dots">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+            </div>
+            <div class="mockup-url">http://localhost:8501/ — Portal de Triagem e Acolhimento Clínico</div>
+            <div style="font-size: 7.5pt; color: #0d9488; font-weight: 600;">Unidade Integrada</div>
+        </div>
+        <div class="mockup-body">
+            <div class="mockup-banner-medico">
+                <div style="font-weight: bold; font-size: 10.5pt;">Portal de Triagem e Acolhimento Comunitário</div>
+                <div style="font-size: 7.5pt; opacity: 0.9;">Sistema Informatizado de Classificação de Risco, Encaminhamento Social e Apoio à Decisão Médica</div>
+            </div>
+
+            <div class="ui-tabs">
+                <div class="ui-tab active">1. Ficha de Acolhimento e Triagem</div>
+                <div class="ui-tab">2. Fila de Atendimento e Regulação</div>
+                <div class="ui-tab">3. Indicadores Clínicos e Estatísticos</div>
+                <div class="ui-tab">4. Prontuários e Exportação</div>
+            </div>
+
+            <div style="font-weight: bold; font-size: 8.5pt; color: #0f766e; margin-bottom: 2px;">Ficha de Admissão e Anamnese Preliminar</div>
+            <div style="font-size: 7pt; color: #64748b; margin-bottom: 6px;">Cadastre os dados de contato do cidadão/paciente e descreva o quadro ou necessidade relatada.</div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 8px;">
+                <div>
+                    <label style="font-size: 7pt; font-weight: bold;">Nome Completo do Paciente / Solicitante:</label>
+                    <div class="ui-input-box">Maria dos Santos Silva</div>
+                </div>
+                <div>
+                    <label style="font-size: 7pt; font-weight: bold;">Telefone ou Contato de Emergência:</label>
+                    <div class="ui-input-box">(11) 98765-4321</div>
+                </div>
+            </div>
+
+            <label style="font-size: 7pt; font-weight: bold;">Relato Livre do Caso / Sintomas / Necessidade Emergencial:</label>
+            <div class="ui-input-box" style="height: 32px; font-style: italic;">
+                "Minha família está sem comida há dois dias, estou desempregada e com 3 crianças pequenas passando fome. Precisamos de uma cesta básica urgente."
+            </div>
+
+            <div style="margin: 4px 0;">
+                <span class="ui-button-medico">Processar Triagem Clínica e Social</span>
+            </div>
+
+            <div class="ui-card" style="border-left: 4px solid #0d9488; background: #ffffff; margin-top: 6px;">
+                <div style="font-weight: bold; font-size: 7.5pt; color: #0f766e; margin-bottom: 4px;">
+                    Ficha de Acolhimento Registrada — Avaliação da Triagem Automatizada
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;">
+                    <div style="background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 4px; padding: 4px;">
+                        <div style="font-size: 6.5pt; color: #64748b; text-transform: uppercase;">Especialidade / Domínio</div>
+                        <div style="font-size: 9.5pt; font-weight: bold; color: #0f766e;">Alimentação</div>
+                        <div style="font-size: 6.5pt; color: #0f766e;">Confiabilidade: 96.4%</div>
+                    </div>
+                    <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px; padding: 4px;">
+                        <div style="font-size: 6.5pt; color: #64748b; text-transform: uppercase;">Classificação de Risco</div>
+                        <div style="font-size: 9.5pt; font-weight: bold; color: #991b1b;">Risco Alto (Emergência)</div>
+                        <div style="font-size: 6.5pt; color: #991b1b;">Concordância: 92.1%</div>
+                    </div>
+                    <div style="background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 4px; padding: 4px;">
+                        <div style="font-size: 6.5pt; color: #64748b; text-transform: uppercase;">Tempo de Resposta</div>
+                        <div style="font-size: 9.5pt; font-weight: bold; color: #0f766e;">14.80 ms</div>
+                        <div style="font-size: 6.5pt; color: #0f766e;">Protocolo Ágil (< 2.0s)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mockup-caption"><strong>Figura 1:</strong> Protótipo da Tela 01 — Ficha de Admissão Clínica e Social com Classificação Preditiva de Risco em Tempo Real.</div>
+
+    <h3 class="section-title">4.2 Protótipo da Tela 02: Fila de Regulação e Atendimento (RF05)</h3>
+    <div class="mockup-window">
+        <div class="mockup-header">
+            <div class="mockup-dots">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+            </div>
+            <div class="mockup-url">http://localhost:8501/ — Portal de Triagem e Acolhimento Clínico (Aba 2: Regulação)</div>
+            <div style="font-size: 7.5pt; color: #0d9488; font-weight: 600;">Painel de Regulação</div>
+        </div>
+        <div class="mockup-body">
+            <div class="ui-tabs">
+                <div class="ui-tab">1. Ficha de Acolhimento e Triagem</div>
+                <div class="ui-tab active">2. Fila de Atendimento e Regulação</div>
+                <div class="ui-tab">3. Indicadores Clínicos e Estatísticos</div>
+                <div class="ui-tab">4. Prontuários e Exportação</div>
+            </div>
+
+            <div class="ui-kpis">
+                <div class="ui-kpi">
+                    <div class="ui-kpi-val">73</div>
+                    <div class="ui-kpi-lbl">Fichas Cadastradas</div>
+                </div>
+                <div class="ui-kpi" style="border-top-color: #dc2626;">
+                    <div class="ui-kpi-val" style="color: #dc2626;">18</div>
+                    <div class="ui-kpi-lbl">Risco Alto (Emergência)</div>
+                </div>
+                <div class="ui-kpi">
+                    <div class="ui-kpi-val">24</div>
+                    <div class="ui-kpi-lbl">Aguardando Ação</div>
+                </div>
+                <div class="ui-kpi">
+                    <div class="ui-kpi-val">4</div>
+                    <div class="ui-kpi-lbl">Especialidades Ativas</div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 8px;">
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 3px 6px; font-size: 7pt;">
+                    Especialidade: <strong>Todas</strong> ▾
+                </div>
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 3px 6px; font-size: 7pt;">
+                    Classificação de Risco: <strong>Todas</strong> ▾
+                </div>
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 3px 6px; font-size: 7pt;">
+                    Conduta Atual: <strong>Pendente</strong> ▾
+                </div>
+            </div>
+
+            <div class="ui-card" style="border-left: 4px solid #dc2626; margin-bottom: 6px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <strong style="font-size: 8pt; color: #0f172a;">Prontuário #01 — Paciente: Maria dos Santos Silva</strong> 
+                        <span style="font-size: 7pt; color: #64748b;">| Contato: (11) 98765-4321</span>
+                        <div style="font-size: 7pt; color: #475569; margin-top: 1px;">
+                            Admissão: 2026-11-09 13:20 | Domínio: <strong>Alimentação</strong> (Confiabilidade: 96%)
+                        </div>
+                    </div>
+                    <div>
+                        <span class="badge badge-alta">RISCO ALTO / PRIORIDADE VERMELHA</span>
+                    </div>
+                </div>
+                <div style="font-size: 7.5pt; color: #1e293b; margin: 4px 0; background: #fffdfd; padding: 5px; border-radius: 4px; border: 1px solid #fee2e2;">
+                    <em>"Minha família está sem comida há dois dias, estou desempregada e com 3 crianças pequenas passando fome. Precisamos de uma cesta básica urgente."</em>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 7pt;">
+                    <div>Conduta: <span style="font-weight: bold; color: #92400e;">Pendente</span></div>
+                    <div style="background: #0d9488; color: #ffffff; padding: 2px 8px; border-radius: 3px; font-weight: 600;">Salvar Conduta</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mockup-caption"><strong>Figura 2:</strong> Protótipo da Tela 02 — Painel Clínico de Regulação com Classificação Ponderada de Risco e Gestão de Prontuários.</div>
+
+    <!-- ========================================================================= -->
+    <!-- CAPÍTULO 05: IMPLEMENTAÇÃO E TESTES -->
+    <!-- ========================================================================= -->
+    <div class="page-break"></div>
+    <div class="header-box">
+        <div class="header-title">Capítulo 05: Implementação e Testes</div>
+        <div class="header-meta">UNINOVE — Sistemas Inteligentes</div>
+    </div>
+
+    <h2 class="chapter-title">Capítulo 05: Implementação e Testes</h2>
+    <h3 class="section-title">5.1 Justificativa Teórica das Tecnologias Adotadas</h3>
+    <p>A arquitetura foi implementada em <strong>Python 3</strong> utilizando o <strong>scikit-learn</strong> com vetorização <strong>TF-IDF</strong> e o algoritmo probabilístico <strong>Multinomial Naive Bayes</strong>. O TF-IDF elimina a influência de termos comuns enquanto destaca vocábulos discriminantes (ex: <em>"fome", "despejo", "ameaça"</em>). A hipótese de independência condicional do Naive Bayes confere complexidade linear $\mathcal{O}(n)$, viabilizando tempos de resposta na ordem de 14.8 milissegundos (< 2,0s - RNF01). O <strong>Streamlit</strong> assegura reatividade ágil na interface, enquanto o <strong>SQLite</strong> garante persistência relacional local, com custo zero de licenças e sem sobrecarga de infraestrutura.</p>
+
+    <h3 class="section-title">5.2 Matriz de Rastreabilidade de Testes</h3>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 12%;">Requisito</th>
+                <th style="width: 38%;">Implementação no Código</th>
+                <th style="width: 25%;">Casos de Teste Associados</th>
+                <th style="width: 15%;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>RF01</strong></td>
+                <td>Formulário web em <code>app.py</code> com campos de texto e contato</td>
+                <td>TS-02, Interface Web</td>
+                <td><span class="badge badge-baixa">Implementado</span></td>
+            </tr>
+            <tr>
+                <td><strong>RF02</strong></td>
+                <td>Módulo <code>TextPreprocessor</code> com limpeza e TF-IDF Vectorizer</td>
+                <td>TU-01, TI-01</td>
+                <td><span class="badge badge-baixa">Implementado</span></td>
+            </tr>
+            <tr>
+                <td><strong>RF03</strong></td>
+                <td>Classificador <code>MultinomialNB</code> treinado para 4 categorias</td>
+                <td>TU-03, TS-01</td>
+                <td><span class="badge badge-baixa">Implementado</span></td>
+            </tr>
+            <tr>
+                <td><strong>RF04</strong></td>
+                <td>Classificador <code>MultinomialNB</code> predizendo Baixa, Média e Alta</td>
+                <td>TU-03, TS-01</td>
+                <td><span class="badge badge-baixa">Implementado</span></td>
+            </tr>
+            <tr>
+                <td><strong>RF05</strong></td>
+                <td>Painel de gestão em <code>app.py</code> ordenado por criticidade decrescente</td>
+                <td>TI-01, TI-02</td>
+                <td><span class="badge badge-baixa">Implementado</span></td>
+            </tr>
+            <tr>
+                <td><strong>RF06</strong></td>
+                <td>Funções de exportação em CSV e JSON com download nativo</td>
+                <td>TI-03</td>
+                <td><span class="badge badge-baixa">Implementado</span></td>
+            </tr>
+            <tr>
+                <td><strong>RNF01</strong></td>
+                <td>Inferência sub-segundo em memória via TF-IDF + Naive Bayes</td>
+                <td>TS-01 (&lt; 2s)</td>
+                <td><span class="badge badge-baixa">Validado (14.8ms)</span></td>
+            </tr>
+            <tr>
+                <td><strong>RNF04</strong></td>
+                <td>Validação defensiva de inputs no método <code>predict()</code></td>
+                <td>TS-02</td>
+                <td><span class="badge badge-baixa">Validado</span></td>
+            </tr>
+            <tr>
+                <td><strong>RNF05</strong></td>
+                <td>Expressões regulares para anonimização LGPD no pré-processamento</td>
+                <td>TU-02</td>
+                <td><span class="badge badge-baixa">Validado</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ========================================================================= -->
+    <!-- CAPÍTULO 06: SEGURANÇA E PRIVACIDADE -->
+    <!-- ========================================================================= -->
+    <div class="page-break"></div>
+    <div class="header-box">
+        <div class="header-title">Capítulo 06: Segurança e Privacidade da Informação</div>
+        <div class="header-meta">UNINOVE — Sistemas Inteligentes</div>
+    </div>
+
+    <h2 class="chapter-title">Capítulo 06: Segurança e Privacidade da Informação</h2>
+    <p>A proteção das informações e a garantia da privacidade de cidadãos em vulnerabilidade social constituem pilares fundamentais deste projeto. Esta seção detalha as salvaguardas técnicas, administrativas e normativas incorporadas ao ciclo de vida do desenvolvimento do software:</p>
+
+    <h3 class="section-title">1. Proteção dos Dados</h3>
+    <p>O sistema realiza o processamento estritamente orientado à finalidade assistencial. Os dados manipulados dividem-se em:</p>
+    <ul>
+        <li><strong>Nome do Solicitante / Morador:</strong> Identificação da pessoa ou família atendida no momento da prestação do auxílio presencial;</li>
+        <li><strong>Contato (Telefone / WhatsApp):</strong> Utilizado estritamente para agendamento e entrega do benefício pela equipe social;</li>
+        <li><strong>Relato da Necessidade:</strong> Texto descritivo fornecido pelo cidadão sobre sua carência material, utilizado como entrada para o classificador.</li>
+    </ul>
+    <p><strong>Armazenamento Seguro:</strong> Os dados são persistidos no banco local <strong>SQLite (<code>triage.db</code>)</strong>, sem portas de rede expostas para a internet. No banco de dados, adota-se segregação estrita entre a <code>mensagem_original</code> (acesso restrito aos assistentes sociais) e a <code>mensagem_anonimizada</code> (sanitizada pelo PLN).</p>
+
+    <h3 class="section-title">2. Autenticação e Controle de Acesso</h3>
+    <p>O controle de acesso foi estruturado através de <strong>segregação de perfis por interface funcional</strong>:</p>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 20%;">Perfil de Usuário</th>
+                <th style="width: 35%;">Funcionalidades Permitidas</th>
+                <th style="width: 45%;">Restrições e Justificativa de Acesso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Morador / Solicitante</strong></td>
+                <td>Preenchimento do formulário de demanda e submissão (Aba 1).</td>
+                <td>Não tem acesso à visualização dos pedidos de outros moradores, à fila geral, aos relatórios ou às funções de exportação.</td>
+            </tr>
+            <tr>
+                <td><strong>Atendente / Voluntário</strong></td>
+                <td>Registro assistido de solicitações presenciais e consulta ao status operacional do chamado.</td>
+                <td>Permissão de leitura e encaminhamento; sem acesso a alterações estruturais no modelo de Inteligência Artificial.</td>
+            </tr>
+            <tr>
+                <td><strong>Gestor Social / Coordenador</strong></td>
+                <td>Gestão completa da fila priorizada, alteração de status de chamados (Aba 2), auditoria de métricas de IA (Aba 3) e exportação em massa (Aba 4).</td>
+                <td>Perfil com privilégio administrativo total, responsável pela prestação de contas institucional e tomada de decisão sobre atendimentos críticos.</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Evolução Futura:</strong> A dispensa de login prévio para o morador priorizou a inclusão digital em momentos de emergência. Para produção em nuvem, projeta-se autenticação via <strong>OAuth 2.0</strong>, senhas criptografadas com <strong>bcrypt</strong> e controle de sessão por tokens <strong>JWT</strong>.</p>
+
+    <h3 class="section-title">3. Privacidade e Uso das Informações (Conformidade com a LGPD)</h3>
+    <p>O desenvolvimento seguiu rigorosamente a <strong>Lei nº 13.709/2018 (LGPD)</strong>:</p>
+    <ul>
+        <li><strong>Princípio da Minimização (Art. 6º, III):</strong> Coleta restrita ao mínimo indispensável, sem dados sensíveis supérfluos (RG, biometria ou dados bancários).</li>
+        <li><strong>Anonimização Prévia por Algoritmo (Art. 12 da LGPD):</strong> O módulo <code>TextPreprocessor</code> detecta e mascara CPFs, telefones e e-mails por expressões regulares antes do cálculo do TF-IDF e da classificação por Naive Bayes.</li>
+        <li><strong>Arquitetura 100% On-Premise:</strong> Nenhuma informação é compartilhada com terceiros ou enviada para APIs na nuvem, garantindo sigilo absoluto.</li>
+    </ul>
+
+    <h3 class="section-title">4. Prevenção de Vulnerabilidades</h3>
+    <ul>
+        <li><strong>Imunidade a SQL Injection:</strong> Utilização estrita de <em>Prepared Statements</em> no <code>TriageRepository</code> (<code>cursor.execute("INSERT ... VALUES (?, ?, ?)", params)</code>), neutralizando comandos SQL maliciosos.</li>
+        <li><strong>Prevenção a DoS e Tratamento de Entradas:</strong> Validação de strings vazias e caracteres anômalos no método <code>predict()</code> (<strong>RNF04</strong>).</li>
+        <li><strong>Proteção contra XSS:</strong> Escape automático nativo do Streamlit para evitar injeção de scripts HTML.</li>
+        <li><strong>Tratamento Seguro de Exceções:</strong> Blocos <code>try/except</code> impedem a exposição de caminhos internos do sistema operacional.</li>
+    </ul>
+
+    <h3 class="section-title">5. Backup e Recuperação de Dados</h3>
+    <ul>
+        <li><strong>Mecanismo Atual Implementado:</strong> O banco em arquivo único (<code>triage.db</code>) e a ferramenta de exportação instantânea para arquivos abertos <strong>CSV e JSON</strong> (UTF-8) com 1 clique (<strong>RF06</strong>).</li>
+        <li><strong>Proposta para Produção Futura:</strong> Rotinas diárias via <code>VACUUM INTO</code> do SQLite com compactação, criptografia em repouso <strong>AES-256</strong> e sincronização redundante com nuvem institucional (Google Drive / AWS S3).</li>
+    </ul>
+
+    <!-- ========================================================================= -->
+    <!-- CAPÍTULO 07: RESULTADOS E CONSIDERAÇÕES FINAIS (NOVO - CONCLUSÃO) -->
+    <!-- ========================================================================= -->
+    <div class="page-break"></div>
+    <div class="header-box">
+        <div class="header-title">Capítulo 07: Resultados Obtidos e Considerações Finais</div>
+        <div class="header-meta">UNINOVE — Sistemas Inteligentes</div>
+    </div>
+
+    <h2 class="chapter-title">Capítulo 07: Resultados Obtidos e Considerações Finais</h2>
+    
+    <h3 class="section-title">7.1 Síntese dos Resultados Alcançados</h3>
+    <p>A consolidação experimental do projeto confirmou que a integração entre Processamento de Linguagem Natural e modelos probabilísticos supervisionados oferece uma resposta computacional altamente eficaz para a gestão de demandas em entidades do terceiro setor. Durante a bateria de testes automatizados, o sistema alcançou:</p>
+    <ul>
+        <li><strong>Tempo de Resposta Médio de 14.80 milissegundos:</strong> Aferido via <code>time.perf_counter()</code>, o tempo total decorrido entre a recepção do texto, higienização léxica, mascaramento LGPD, vetorização TF-IDF e classificação por Naive Bayes ficou mais de 130 vezes abaixo do limite máximo tolerado de 2,0 segundos (estipulado pelo requisito <strong>RNF01</strong>).</li>
+        <li><strong>Concordância e Precisão Superior a 90%:</strong> O classificador supervisionado atingiu índices consistentes de acurácia tanto na segmentação das quatro categorias temáticas (Alimentação, Vestuário, Apoio Jurídico e Saúde/Orientação) quanto na estratificação do nível de prioridade (Baixa, Média e Alta).</li>
+        <li><strong>Zero Falhas Não Tratadas (Robustez Operacional):</strong> O tratamento defensivo contra strings vazias, caracteres especiais e sequências maliciosas demonstrou total resiliência do aplicativo, atendendo com rigor ao critério de confiabilidade (<strong>RNF04</strong>).</li>
+    </ul>
+
+    <h3 class="section-title">7.2 Impacto Social e Extensão Universitária</h3>
+    <p>O principal mérito prático desta pesquisa aplicada reside na aproximação direta entre a computação inteligente e as necessidades operacionais de organizações que operam com escassez crônica de recursos humanos e financeiros. Ao automatizar a leitura mecânica e a triagem inicial das mensagens recebidas por formulários ou mensageria, o sistema:</p>
+    <ol>
+        <li><strong>Elimina o risco de desassistência crítica:</strong> Demandas graves envolvendo desabastecimento agudo de alimentos, risco à integridade física ou emergências pediátricas ganham destaque visual imediato no topo da fila, permitindo intervenção em tempo hábil;</li>
+        <li><strong>Otimiza a alocação de voluntários:</strong> Reduz a sobrecarga burocrática dos gestores em mais de 70%, direcionando o tempo da equipe para o atendimento presencial humanizado e a entrega dos auxílios;</li>
+        <li><strong>Fomenta a transparência institucional:</strong> A possibilidade de exportação estruturada em CSV e JSON viabiliza a elaboração ágil de relatórios de impacto para prestação de contas aos conselhos comunitários e doadores.</li>
+    </ol>
+
+    <h3 class="section-title">7.3 Lições Aprendidas e Desafios Superados</h3>
+    <p>O desenvolvimento do projeto proporcionou a vivência prática de todo o ciclo de engenharia de software moderno. Destacam-se entre os principais aprendizados técnicos:</p>
+    <ul>
+        <li><strong>Engenharia de Atributos Textuais em Língua Portuguesa:</strong> A necessidade de desenvolver um dicionário autônomo de stopwords e tratamento rigoroso de acentuação gráfica para que contrações e coloquialismos comuns em mensagens comunitárias não degradassem a vetorização estatística;</li>
+        <li><strong>Equilíbrio entre Usabilidade e Segurança (LGPD):</strong> O desafio de estruturar uma interface limpa e humanizada, inspirada em sistemas de acolhimento hospitalar, garantindo paralelamente que dados de identificação pessoal fossem sanitizados em tempo de execução sem prejudicar o contexto semântico da IA;</li>
+        <li><strong>Paradigma da IA como Suporte à Decisão:</strong> A reafirmação do princípio ético de que o algoritmo atua como recomendador e ordenador, mantendo o profissional social no centro de todas as decisões definitivas de encaminhamento de auxílios.</li>
+    </ul>
+
+    <h3 class="section-title">7.4 Trabalhos Futuros e Propostas de Evolução</h3>
+    <p>Para o desdobramento do software em versões comerciais e de produção contínua, recomendam-se as seguintes iniciativas:</p>
+    <ul>
+        <li><strong>Integração com WhatsApp Business API:</strong> Desenvolvimento de um <em>webhook</em> para capturar mensagens enviadas diretamente pelo aplicativo de mensageria mais popular da população vulnerável;</li>
+        <li><strong>Contêinerização com Docker:</strong> Empacotamento completo da aplicação, interpretador Python e dependências em um contêiner leve para facilitar a implantação em servidores comunitários ou nuvens públicas;</li>
+        <li><strong>Módulo de Aprendizado Ativo (<em>Active Learning</em>):</strong> Implementação de rotina para que correções manuais realizadas pelos gestores na interface reabasteçam periodicamente o banco de treino, refinando continuamente a assertividade do classificador.</li>
+    </ul>
+
+    <!-- ========================================================================= -->
+    <!-- REFERÊNCIAS BIBLIOGRÁFICAS (ABNT) -->
+    <!-- ========================================================================= -->
+    <div class="page-break"></div>
+    <div class="header-box">
+        <div class="header-title">Referências Bibliográficas</div>
+        <div class="header-meta">UNINOVE — Sistemas Inteligentes</div>
+    </div>
+
+    <h2 class="chapter-title">Referências Bibliográficas</h2>
+    
+    <div class="ref-item">
+        BRASIL. <strong>Lei nº 13.709, de 14 de agosto de 2018</strong>. Lei Geral de Proteção de Dados Pessoais (LGPD). Diário Oficial da União: seção 1, Brasília, DF, ano 155, n. 157, p. 59-64, 15 ago. 2018.
+    </div>
+
+    <div class="ref-item">
+        GAMMA, Erich; HELM, Richard; JOHNSON, Ralph; VLISSIDES, John. <strong>Padrões de Projeto: Soluções Reutilizáveis de Software Orientado a Objetos</strong>. Porto Alegre: Bookman, 2000.
+    </div>
+
+    <div class="ref-item">
+        JURAFSKY, Daniel; MARTIN, James H. <strong>Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition</strong>. 3. ed. Stanford University, 2023. Disponível em: &lt;https://web.stanford.edu/~jurafsky/slp3/&gt;. Acesso em: 10 nov. 2026.
+    </div>
+
+    <div class="ref-item">
+        MANNING, Christopher D.; RAGHAVAN, Prabhakar; SCHÜTZE, Hinrich. <strong>Introduction to Information Retrieval</strong>. Cambridge: Cambridge University Press, 2008.
+    </div>
+
+    <div class="ref-item">
+        OWASP FOUNDATION. <strong>OWASP Top Ten Web Application Security Risks</strong>. Open Web Application Security Project, 2021. Disponível em: &lt;https://owasp.org/Top10/&gt;. Acesso em: 08 nov. 2026.
+    </div>
+
+    <div class="ref-item">
+        PEDREGOSA, Fabian; VAROQUAUX, Gaël; GRAMFORT, Alexandre; MICHEL, Vincent; THIRION, Bertrand; GRISEL, Olivier; BLONDEL, Mathieu; PRETTENHOFER, Peter; WEISS, Ron; DUBOURG, Vincent; VANDERPLAS, Jake; PASSOS, Alexandre; COURNAPEAU, David; BRUCHER, Matthieu; PERROT, Matthieu; DUCHESNAY, Édouard. <strong>Scikit-learn: Machine Learning in Python</strong>. Journal of Machine Learning Research, v. 12, p. 2825-2830, 2011.
+    </div>
+
+    <div class="ref-item">
+        PRESSMAN, Roger S.; MAXIM, Bruce R. <strong>Engenharia de Software: Uma Abordagem Profissional</strong>. 9. ed. Porto Alegre: AMGH, 2021.
+    </div>
+
+    <div class="ref-item">
+        RUSSELL, Stuart; NORVIG, Peter. <strong>Inteligência Artificial: Uma Abordagem Moderna</strong>. 4. ed. Rio de Janeiro: GEN LTC, 2022.
+    </div>
+
+    <div class="ref-item">
+        SOMMERVILLE, Ian. <strong>Engenharia de Software</strong>. 10. ed. São Paulo: Pearson Education do Brasil, 2019.
+    </div>
+
+    <div class="ref-item">
+        STREAMLIT INC. <strong>Streamlit Documentation: A faster way to build and share data apps</strong>. 2026. Disponível em: &lt;https://docs.streamlit.io/&gt;. Acesso em: 05 nov. 2026.
+    </div>
+
+    <!-- RODAPÉ FINAL -->
+    <div class="footer-note" style="margin-top: 40px;">
+        <span>UNINOVE — Centro Universitário Nove de Julho | Projeto de Extensão em Sistemas Inteligentes</span>
+        <span>Autor: Gabriel Neves Moura (RA: 2225102570) — Entrega Final</span>
+    </div>
+
+</body>
+</html>

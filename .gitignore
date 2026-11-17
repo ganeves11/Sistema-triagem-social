@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+venv/
+env/
+.venv/
+ENV/
+
+# Bancos de dados gerados em runtime
+*.sqlite3
+*.db-journal
+
+# Arquivos compactados e temporários
+*.zip
+*.tar.gz
+.DS_Store
+Thumbs.db
+
+# Configurações locais de IDE
+.vscode/
+*.swp
+*.swo
