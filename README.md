@@ -51,7 +51,7 @@ A solução foi desenvolvida adotando o paradigma de Programação Orientada a O
 ## 4. Estrutura do Repositório
 
 ```text
-projeto-triagem-social/
+sistema-triagem-social/
 │
 ├── data/
 │   └── dataset_sintetico.csv       # Base de treinamento com instâncias balanceadas em português
@@ -91,8 +91,8 @@ projeto-triagem-social/
 
 1. **Clonar o repositório:**
    ```bash
-   git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-   cd SEU-REPOSITORIO
+   git clone https://github.com/ganeves11/sistema-triagem-social.git
+   cd sistema-triagem-social
    ```
 
 2. **Criar e ativar o ambiente virtual (recomendado):**
@@ -143,7 +143,7 @@ O software incorpora salvaguardas alinhadas à Lei Geral de Proteção de Dados 
 
 ## 8. Autor e Identificação Acadêmica
 
-* **Desenvolvedor:** Gabriel Neves Moura
+* **Desenvolvedor:** Gabriel Neves Moura ([@ganeves11](https://github.com/ganeves11))
 * **Registro Acadêmico (RA):** 2225102570
 * **Instituição:** Centro Universitário Nove de Julho (UNINOVE)
 * **Disciplina:** Projeto de Extensão em Sistemas Inteligentes
